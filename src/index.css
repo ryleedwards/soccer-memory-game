@@ -1,68 +1,151 @@
+/* VARIABLES */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --mono-10: #f8f9faff;
+  --mono-20: #e9ecefff;
+  --mono-30: #dee2e6ff;
+  --mono-40: #ced4daff;
+  --mono-50: #adb5bdff;
+  --mono-60: #6c757dff;
+  --mono-70: #495057ff;
+  --mono-80: #343a40ff;
+  --mono-90: #212529ff;
 }
 
+/* BEGIN BOILERPLATE */
+*,
+*::before,
+*::after {
+  /* Reset box model */
+  box-sizing: border-box;
+}
+
+/* Image behavior */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Reset list styling */
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+  list-style: none;
+}
+menu,
+ol,
+ul {
+  padding-left: 0;
+}
+article ol,
+article ul {
+  list-style-position: inside;
+}
+
+/* Enhance link underlines */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  /* Places underlines below the descenders */
+  text-underline-position: under;
+
+  /* Sets the thickness as a percentage of the font size */
+  text-decoration-thickness: 8;
 }
-a:hover {
-  color: #535bf2;
+
+/* Change root font size */
+html {
+  font-size: 62.5%;
+}
+
+/* Disable the text inflation algorithm */
+html {
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
+}
+
+/* Enable smooth scrolling */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Provide interactive elements with cursor */
+label,
+button,
+select,
+summary,
+[type='radio'],
+[type='submit'],
+[type='checkbox'] {
+  cursor: pointer;
+}
+
+/* Change focus behavior */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+/* END BOILERPLATE */
+
+*,
+*::after,
+*::before {
+  margin: 0;
 }
 
 body {
-  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+  height: 65px;
+  background-color: var(--mono-80);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.navbar--soccer-image {
+  max-height: 40px;
+  padding-left: 10px;
 }
 
-button {
+.navbar--title {
+  padding-left: 10px;
+  font-size: 2rem;
+  color: var(--mono-10);
+}
+
+.main--score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mono-50);
+  padding: 8px;
+}
+
+.main--score-container > h3 {
+  font-size: 1.25rem;
+}
+
+.main--cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 150px;
+  background-color: var(--mono-20);
+  border: solid 2px var(--mono-70);
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  padding: 8px;
+  margin: 8px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.card--team-name {
+  font-size: 1.25rem;
+  margin-top: 16px;
 }
